@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="ie9" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="default/head :: head('Super Admin Responsive Template','')"></head>
+    <body id="skin-blur-violate">
+        <!-- 新消息 -->
+        <header th:replace="~{default/default:: header}"></header>
+
+        <div class="clearfix"></div>
+        
+        <section id="main" class="p-relative" role="main">
+            
+            <!-- Sidebar 左侧菜单以及个人信息 -->
+            <aside th:replace="~{default/default:: aside}"></aside>
+            <!-- Content -->
+            <section id="content" class="container">
+                <!-- Messages Drawer -->
+                <aside th:replace="~{default/default:: messages}"></aside>
+                <!-- Notification Drawer -->
+                <aside th:replace="~{default/default:: notifications}"></aside>
+
+                
+
+
+                
+
+
+                
+
+
+
+                
+
+            </section>
+
+
+        </section>
+        
+        <!-- Javascript Libraries -->
+        <div th:replace="default/default :: js('')"></div>
+    </body>
+</html>
