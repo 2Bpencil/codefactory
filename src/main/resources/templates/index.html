@@ -19,16 +19,9 @@
                 
                 <!-- Notification Drawer -->
                 <aside th:replace="~{default/default:: notifications}"></aside>
-                
-                <!-- Breadcrumb -->
-                <ol class="breadcrumb hidden-xs">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Library</a></li>
-                    <li class="active">Data</li>
-                </ol>
-                
-                <h4 class="page-title">DASHBOARD</h4>
-                                
+                <!-- Breadcrumb 面包屑 -->
+                <div th:replace="default/default :: breadcrumb('INDEX')" ></div>
+
                 <!-- Shortcuts -->
                 <div class="block-area shortcut-area">
                     <a class="shortcut tile" href="">

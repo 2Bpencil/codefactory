@@ -67,6 +67,20 @@
 
 
 
+<!-- Breadcrumb 面包屑 -->
+<div th:fragment="breadcrumb(title)">
+    <ol class="breadcrumb hidden-xs"  >
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+    </ol>
+
+    <h4 class="page-title" th:text="${title}" >DASHBOARD</h4>
+</div>
+
+
+
+
 <!-- Sidebar 左侧菜单以及个人信息 -->
 <aside id="sidebar" th:fragment="aside">
 
