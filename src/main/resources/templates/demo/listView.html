@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="ie9" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html class="ie9" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="default/default :: head('Super Admin Responsive Template','')"></head>
     <body id="skin-blur-violate">
         <!-- 新消息 -->
@@ -18,7 +18,8 @@
                 <!-- Notification Drawer -->
                 <aside th:replace="~{default/default:: notifications}"></aside>
                 <!-- Breadcrumb 面包屑 -->
-                <div th:replace="default/default :: breadcrumb('list Demo')" ></div>
+                <div th:replace="default/default :: breadcrumb('list view')" ></div>
+
 
                 <div class="message-list list-container">
                     <header class="listview-header media">
@@ -40,7 +41,7 @@
 
                         <ul class="list-inline list-mass-actions pull-left">
                             <li>
-                                <a data-toggle="modal" href="#compose-message"  title="Add" class="tooltips">
+                                <a data-toggle="modal" href="#compose-message" title="Add" class="tooltips">
                                     <i class="sa-list-add"></i>
                                 </a>
                             </li>
@@ -291,7 +292,7 @@
                     </div>
                 </div>
 
-                <!-- Compose 弹框 -->
+                <!-- Compose -->
                 <div class="modal fade" id="compose-message">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -299,49 +300,27 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title">NEW MESSAGE</h4>
                             </div>
-                            <div class="modal-header">
-
-                                <form role="form" class="form-validation-1">
-
-                                    <div class="row">
-                                        <div class="col-md-4 form-group">
-                                            <label>Text feild</label>
-                                            <input type="text" class="input-sm validate[required] form-control" placeholder="...">
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="input-sm validate[required] form-control" placeholder="...">
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label>Select</label>
-                                            <select name="sport" class="form-control input-sm validate[required]">
-                                                <option value="">Choose a sport</option>
-                                                <option value="option1">Tennis</option>
-                                                <option value="option2">Football</option>
-                                                <option value="option3">Golf</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="form-group m-b-15">
-                                        <label>Textarea</label>
-                                        <textarea class="input-sm validate[required] form-control" placeholder="..."></textarea>
-                                    </div>
-                                    <input class="btn btn-sm" type="submit" value="SAVE">
-                                    <button class="btn btn-sm validation-clear" data-dismiss="modal" aria-hidden="true">CLOSE</button>
-                                </form>
-
+                            <div class="modal-header p-0">
+                                <input type="text" class="form-control input-sm input-transparent" placeholder="To...">
                             </div>
-
+                            <div class="modal-header p-0">
+                                <input type="text" class="form-control input-sm input-transparent" placeholder="Subject...">
+                            </div>
+                            <div class="p-relative">
+                                <div class="message-options">
+                                    <img src="img/icon/tile-actions.png" alt="">
+                                </div>
+                                <textarea class="message-editor" placeholder="Message..."></textarea>
+                            </div>
+                            <div class="modal-footer m-0">
+                                <button class="btn">Send</button>
+                                <button class="btn">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-
-
+                
             </section>
 
 
@@ -349,29 +328,5 @@
 
         <!-- Javascript Libraries -->
         <div th:replace="default/default :: js('')"></div>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                //Editor
-                $('.message-editor').summernote({
-                    toolbar: [
-                        //['style', ['style']], // no style button
-                        ['style', ['bold', 'italic', 'underline', 'clear']],
-                        ['fontsize', ['fontsize']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],
-                        //['height', ['height']],
-                        ['insert', ['picture', 'link']], // no insert buttons
-                        //['table', ['table']], // no table button
-                        //['help', ['help']] //no help button
-                    ],
-                    height: 400,
-                    resizable: false
-                });
-
-                $('.message-options').click(function(){
-                    $(this).closest('.modal').find('.note-toolbar').toggle();
-                });
-            });
-        </script>
     </body>
 </html>
