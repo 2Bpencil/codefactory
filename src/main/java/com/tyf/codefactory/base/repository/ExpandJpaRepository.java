@@ -9,4 +9,11 @@ import java.io.Serializable;
 @NoRepositoryBean
 public interface ExpandJpaRepository<T , ID extends Serializable> extends JpaRepository<T,ID> {
 
+
+
+
+
+
+
+
 }

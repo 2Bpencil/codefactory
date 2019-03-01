@@ -49,7 +49,9 @@ public class UserServiceImpl  implements UserService,UserDetailsService {
         return userRepository.save(user);
     }
 
-
+    public List<User> findAll(){
+        return userRepository.findAll();
+    }
 
 
 
