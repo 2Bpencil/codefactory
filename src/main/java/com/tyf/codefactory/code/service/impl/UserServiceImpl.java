@@ -7,6 +7,9 @@ import com.tyf.codefactory.code.entity.Role;
 import com.tyf.codefactory.code.entity.User;
 import com.tyf.codefactory.code.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -53,8 +56,13 @@ public class UserServiceImpl  implements UserService,UserDetailsService {
         return userRepository.findAll();
     }
 
-
-
-
-
+    @Override
+    public Page<User> findPage(Integer page) {
+        if (null == page) {
+            page = 0;
+        }
+        PageRequest pageable = PageRequest.of(page, 15, Sort.Direction.DESC, "id");
+        Page<User> users = userRepository.findAll(pageable);
+        return users;
+    }
 }
